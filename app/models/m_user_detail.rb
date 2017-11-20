@@ -1,0 +1,2 @@
+class MUserDetail < ApplicationRecord
+end

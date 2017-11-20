@@ -10,9 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20171117081245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "logins", force: :cascade do |t|
+    t.bigint "m_user_detail_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "auth_tokan"
+    t.index ["auth_tokan"], name: "index_logins_on_auth_tokan"
+    t.index ["m_user_detail_id"], name: "index_logins_on_m_user_detail_id"
+  end
+
+  create_table "m_user_details", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "company"
+    t.string "mailid"
+    t.string "dob"
+    t.string "mob"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "created_by"
+    t.string "updated_by"
+    t.boolean "del_flag", default: false
+  end
+
+  add_foreign_key "logins", "m_user_details"
 end
