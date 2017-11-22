@@ -41,3 +41,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "rename"
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+gem 'graphql', '1.7.4'
+gem 'graphiql-rails', '1.4.4', group: :development
