@@ -30,6 +30,7 @@ Types::MutationType = GraphQL::ObjectType.define do
     resolve ->(obj, args, ctx) {
       emp=Employee.find(args[:id])
       emp.try :update, args.to_h
+      emp
   }
   end
 
