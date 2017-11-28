@@ -34,5 +34,12 @@ Types::MutationType = GraphQL::ObjectType.define do
   }
   end
 
+  field :deleteemp, types.Boolean do
+    argument :id, types.ID
+    resolve ->(obj, args, ctx){
+      emp = Employee.find(args[:id])
+      !! emp.destroy      
+    }
+  end
   #field :updateemployee, function: Mutations::updateemp.new
 end
