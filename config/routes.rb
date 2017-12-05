@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  devise_for :users
+  get 'helloworld/hello'
+
+  use_doorkeeper
   #post "/graphql", to: "graphql#execute"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #namespace :api, :defaults => {:format => :json} do    
@@ -14,6 +18,10 @@ Rails.application.routes.draw do
 
   #post 'employees' , to: 'employees#create'
   #Rails.application.routes.draw do
+  #devise_for :users
+  #get 'helloworld/hello'
+
+  #use_doorkeeper
   # ...
  # mount GraphiQL::Rails::Engine, at: "/gi", graphql_path: "/graphql"
   # ...
@@ -21,5 +29,5 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   mount GraphiQL::Rails::Engine, at: 'gi', graphql_path: '/graphql'
 #end
-  
+  #root to: "helloworld#hello"
 end

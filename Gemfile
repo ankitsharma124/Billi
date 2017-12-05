@@ -46,3 +46,5 @@ gem 'graphiql-rails', '1.4.4', group: :development
 gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
+gem 'doorkeeper'
+gem 'devise'

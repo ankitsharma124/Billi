@@ -33,6 +33,14 @@ Types::MutationType = GraphQL::ObjectType.define do
       emp
   }
   end
+  field :signup, Types::UserType do
+    argument :email, types.String
+    argument :password, types.String
+    argument :password_confirmation, types.String
+    
+    description "Sign up"
+    resolve ->(obj, args, ctx) { User.create args.to_h }
+  end
 
   #field :updateemployee, function: Mutations::updateemp.new
 end
